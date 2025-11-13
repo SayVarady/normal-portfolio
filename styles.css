@@ -1,0 +1,134 @@
+:root{
+  --bg: #ffffff;
+  --muted: #f2f4f6;
+  --text: #0f1720;
+  --muted-text: #5b6470;
+  --accent: #1177ff;
+  --radius: 8px;
+  --container: 1100px;
+  --gap: 1rem;
+  --shadow: 0 6px 18px rgba(16,24,40,0.06);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  font-size:16px;
+}
+
+.container{
+  width:100%;
+  max-width:var(--container);
+  margin:0 auto;
+  padding:0 20px;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter: blur(4px);
+  border-bottom:1px solid #eee;
+  z-index:30;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:var(--gap);
+  padding:14px 0;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{
+  width:44px;height:44px;border-radius:8px;background:var(--muted);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--text)
+}
+.name{font-weight:600}
+.nav{display:flex;gap:18px;align-items:center}
+.nav a{color:var(--muted-text);text-decoration:none;font-weight:600;font-size:0.95rem}
+.nav a:hover{color:var(--text)}
+
+/* Mobile nav toggle */
+.nav-toggle{
+  display:none;
+  background:none;border:0;padding:6px;
+}
+.nav-toggle span{display:block;width:20px;height:2px;background:var(--text);margin:4px 0;border-radius:2px}
+
+/* Hero */
+.hero{
+  padding:80px 0 48px;
+  display:flex;
+  align-items:center;
+  min-height:36vh;
+}
+.hero-inner{text-align:left}
+.hero h1{font-size:2.25rem;margin:0 0 10px}
+.hero .accent{color:var(--accent)}
+.tagline{color:var(--muted-text);margin:0 0 18px;max-width:720px}
+.hero-cta{display:flex;gap:12px}
+.btn{
+  display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:none;cursor:pointer;
+  box-shadow:var(--shadow)
+}
+.btn.ghost, .link.ghost{background:transparent;color:var(--accent);border:1px solid #e6eefc}
+.link{color:var(--accent);text-decoration:none;font-weight:600}
+
+/* Sections */
+section{padding:40px 0}
+.section-sub{color:var(--muted-text);margin-top:6px;margin-bottom:18px}
+
+/* About */
+.about-grid{display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center}
+.avatar{width:96px;height:96px;border-radius:12px}
+.about-text h2{margin:0 0 8px}
+.meta-list{list-style:none;padding:0;margin:12px 0 0;color:var(--muted-text)}
+.meta-list li{margin-bottom:6px}
+
+/* Projects */
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.card{background:var(--muted);border-radius:10px;padding:14px;display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
+.card-title{margin:0 0 6px}
+.card-desc{color:var(--muted-text);margin:0 0 10px;font-size:0.95rem}
+.card-meta{font-size:0.85rem;color:var(--muted-text)}
+.card-actions{display:flex;gap:10px;margin-top:12px}
+.card .link{color:var(--accent);text-decoration:none;font-weight:600}
+
+/* Skills */
+.skill-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.skill{background:var(--muted);padding:8px 12px;border-radius:999px;font-weight:600;color:var(--muted-text)}
+
+/* Contact */
+.contact-form{max-width:680px;margin-top:12px;display:grid;gap:10px}
+.contact-form label{display:block}
+.contact-form input[type="email"], .contact-form textarea{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e9eef2;background:#fff;color:var(--text);font-size:1rem
+}
+.form-actions{display:flex;gap:12px;align-items:center;margin-top:6px}
+.form-msg{color:var(--muted-text);margin-top:8px}
+
+/* Footer */
+.site-footer{border-top:1px solid #eee;padding:16px 0;color:var(--muted-text)}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;align-items:center}
+
+/* Responsive */
+@media (max-width:900px){
+  .projects-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:80px 1fr}
+}
+@media (max-width:640px){
+  .nav{display:none;position:absolute;top:66px;right:20px;background:#fff;border-radius:10px;box-shadow:var(--shadow);flex-direction:column;padding:10px}
+  .nav.show{display:flex}
+  .nav-toggle{display:block}
+  .projects-grid{grid-template-columns:1fr}
+  .hero{padding:56px 0 30px}
+  .hero h1{font-size:1.6rem}
+  .header-inner{position:relative}
+}

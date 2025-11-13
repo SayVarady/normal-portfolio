@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>[Your Name] — Backend Developer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <div class="logo">YN</div>
+        <div class="name">Your Name</div>
+      </div>
+      <nav class="nav" id="mainNav">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Hi, I’m <span class="accent">Your Name</span></h1>
+        <p class="tagline">I design and build scalable, reliable backend systems — APIs, data pipelines, and resilient services.</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn">View Projects</a>
+          <a href="#contact" class="btn ghost">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <div class="about-grid">
+        <div class="about-photo" aria-hidden="true">
+          <!-- Minimal avatar placeholder -->
+          <svg viewBox="0 0 100 100" class="avatar" role="img" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100" height="100" rx="12" fill="var(--muted)"/>
+            <circle cx="50" cy="36" r="16" fill="var(--bg)"/>
+            <rect x="25" y="60" width="50" height="20" rx="4" fill="var(--bg)"/>
+          </svg>
+        </div>
+
+        <div class="about-text">
+          <h2>About</h2>
+          <p>I'm a backend developer focused on building maintainable APIs and data systems. I care about observability, automated testing, and sensible defaults.</p>
+          <ul class="meta-list">
+            <li><strong>Experience:</strong> 4+ years building web services</li>
+            <li><strong>Primary:</strong> Node.js, Python</li>
+            <li><strong>Databases:</strong> PostgreSQL, Redis</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects container">
+      <h2>Projects</h2>
+      <p class="section-sub">A selection of backend-focused projects with links to source and demos.</p>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Project card (duplicate/modify as needed) -->
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Auth Service</h3>
+            <p class="card-desc">A secure token-based authentication microservice with refresh tokens, rate limiting and audit logs.</p>
+            <div class="card-meta">Node.js • Express • PostgreSQL • Docker</div>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="#" target="_blank" rel="noopener">GitHub</a>
+            <a class="link" href="#" target="_blank" rel="noopener">Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Event Ingestor</h3>
+            <p class="card-desc">High-throughput event ingestion pipeline using Kafka, with backpressure and schema validation.</p>
+            <div class="card-meta">Python • Kafka • Docker • Protobuf</div>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="#" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-body">
+            <h3 class="card-title">Monitoring Tools</h3>
+            <p class="card-desc">Lightweight monitoring stack that exports custom metrics and integrates with Prometheus/Grafana.</p>
+            <div class="card-meta">Go • Prometheus • Grafana</div>
+          </div>
+          <div class="card-actions">
+            <a class="link" href="#" target="_blank" rel="noopener">GitHub</a>
+            <a class="link" href="#" target="_blank" rel="noopener">Article</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="skills container">
+      <h2>Skills</h2>
+      <div class="skill-list">
+        <span class="skill">APIs & Microservices</span>
+        <span class="skill">PostgreSQL</span>
+        <span class="skill">Docker & CI</span>
+        <span class="skill">AWS</span>
+        <span class="skill">Testing & TDD</span>
+        <span class="skill">Observability</span>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Contact</h2>
+      <p class="section-sub">Let's build something reliable together. Email me or find me on GitHub / LinkedIn.</p>
+
+      <form class="contact-form" id="contactForm">
+        <label>
+          <span class="label-text">Email</span>
+          <input type="email" name="email" placeholder="you@domain.com" required />
+        </label>
+
+        <label>
+          <span class="label-text">Message</span>
+          <textarea name="message" rows="4" placeholder="Short message..."></textarea>
+        </label>
+
+        <div class="form-actions">
+          <button type="submit" class="btn">Send</button>
+          <a class="link ghost" href="mailto:you@domain.com">you@domain.com</a>
+        </div>
+
+        <div id="formMsg" class="form-msg" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Your Name</div>
+      <div class="socials">
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
