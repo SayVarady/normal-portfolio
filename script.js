@@ -40,6 +40,82 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
   });
 
+  (function () {
+    const root = document.documentElement;
+    const themeKey = 'theme-preference';
+    const btn = document.getElementById('themeToggle');
+
+    function getPreferredTheme() {
+      const stored = localStorage.getItem(themeKey);
+      if (stored === 'light' || stored === 'dark') return stored;
+      // fall back to OS preference
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      if (btn) {
+        const pressed = theme === 'dark';
+        btn.setAttribute('aria-pressed', String(pressed));
+      }
+    }
+
+    function toggleTheme() {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+      localStorage.setItem(themeKey, next);
+    }
+
+    // initialize
+    applyTheme(getPreferredTheme());
+
+    if (btn) {
+      btn.addEventListener('click', toggleTheme);
+    }
+
+    // small extras commonly in script.js: set year and basic nav toggle (keeps previous behaviour)
+    const yearEl = document.getElementById('year');
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById('navToggle');
+    const mainNav = document.getElementById('mainNav');
+    if (navToggle && mainNav) {
+      navToggle.addEventListener('click', () => {
+        const expanded = mainNav.getAttribute('data-open') === 'true';
+        mainNav.setAttribute('data-open', String(!expanded));
+        navToggle.setAttribute('aria-expanded', String(!expanded));
+      });
+    }
+
+  })();
+
   // Year
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Experience
+  const date1 = new Date('2023-08-15T10:00:00Z');
+  const date2 = new Date();
+
+  function getDateDifference(startDate, endDate) {
+    let start = new Date(startDate);
+    let end = new Date(endDate);
+
+    // Ensure start date is earlier than end date
+    if (start > end) {
+      [start, end] = [end, start]; // Swap dates
+    }
+
+    let years = end.getFullYear() - start.getFullYear();
+    let months = end.getMonth() - start.getMonth();
+
+    // Adjust for negative months
+    if (months < 0) {
+      years--;
+      months += 12;
+    }
+    let yearFormat = years > 1 ? 'years' : 'year';
+    let monthFormat = months > 1 ? 'months' : 'month';
+    return `${years} ${yearFormat} ${months} ${monthFormat}`;
+  }
+  document.getElementById('experience').textContent = getDateDifference(date1, date2);
 });
